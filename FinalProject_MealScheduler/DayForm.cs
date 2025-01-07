@@ -19,6 +19,11 @@ namespace FinalProject_MealScheduler
         readonly Day parentDay;
         Day workingDay = new();
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="parentDay"></param>
+        /// <param name="isEditing"></param>
         public DayForm(Day parentDay, bool isEditing)
         {
             InitializeComponent();
@@ -38,6 +43,9 @@ namespace FinalProject_MealScheduler
                 lunchInput.Text = parentDay.MealPlanning.Lunch;
                 dinnerInput.Text = parentDay.MealPlanning.Dinner;
             }
+
+            dayGroup.Text = string.Concat(datePicker.Value.DayOfWeek.ToString(), " ",
+                datePicker.Value.ToString("dd MMMM", CultureInfo.InvariantCulture));
         }
 
         /// <summary>
@@ -47,10 +55,8 @@ namespace FinalProject_MealScheduler
         /// <param name="e"></param>
         private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
-            string textOut = string.Concat(datePicker.Value.DayOfWeek.ToString(), " ",
+            dayGroup.Text = string.Concat(datePicker.Value.DayOfWeek.ToString(), " ",
                 datePicker.Value.ToString("dd MMMM", CultureInfo.InvariantCulture));
-
-            dayGroup.Text = textOut;
         }
 
         /// <summary>

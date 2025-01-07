@@ -215,6 +215,11 @@ namespace FinalProject_MealScheduler
                 dinnerDescription.Text = GetFormattedMealDescription(day.MealPlanning.Dinner);
         }
 
+        /// <summary>
+        /// Returns a formatted meal description.
+        /// </summary>
+        /// <param name="meal"></param>
+        /// <returns></returns>
         private string GetFormattedMealDescription(string meal)
         {
             if (meal.Length > 60)
